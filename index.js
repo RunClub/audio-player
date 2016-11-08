@@ -8,7 +8,7 @@ module.exports = function() {
   this.audio = audio;
   //this.currentTime = audio.currentTime;
   //this.duration = audio.duration;
-  
+
   this.play = function(src) {
     if (src != audio.src) { audio.src = src; }
     audio.play();
@@ -19,6 +19,13 @@ module.exports = function() {
     audio.pause();
     this.playing = false;
   }
+
+  this.reset = function() {
+    audio.src = null;
+    this.playing = false;
+    this.paused = false;
+  }
+
 
   this.playPause = function(src) {
     if (src != this.playing) {
@@ -43,4 +50,3 @@ module.exports = function() {
   return this.init();
 
 };
-
